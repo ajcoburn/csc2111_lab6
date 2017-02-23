@@ -103,14 +103,12 @@ void Maze::processSolution(StackLinked<Cell>* stack)
    while( !stack->isEmpty() )
    {
       //get the next cell from the stack
-	  Cell* cl = stack->pop();
-	  int row = cl->getRow();
-	  int col = cl->getColumn();
+      Cell* cl = stack->pop();
+      int row = cl->getRow(); 
+      int col = cl->getColumn();
       
       //update the maze location to PATH
-	  setElement(row, col, PATH);
-
-
+      setElement(row, col, PATH);
 
       gui->update();
    }
