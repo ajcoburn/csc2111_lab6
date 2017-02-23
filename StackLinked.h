@@ -69,21 +69,32 @@ T* StackLinked<T>::peek()
 {
    T* item = NULL;
    //DO THIS
-
-
-
-
-
+	NextNode<T>* curr = top;
+	NextNode<T>* prev = NULL;
+	while (curr != NULL)
+	{
+		prev = curr;
+		curr = curr->getNext();
+	}
+	
+	item = prev->getItem();
+	
+	return item;
 }
 
 template < class T >
 void StackLinked<T>::push(T* item)
 {
    //DO THIS
-
-
-
-
+	NextNode<T>* curr = top;
+	NextNode<T>* prev = NULL;
+	while (curr != NULL)
+	{
+		prev = curr;
+		curr = curr->getNext();
+	}
+	
+	curr->NextNode(item);
 }
 
 template < class T >
@@ -92,10 +103,18 @@ T* StackLinked<T>::pop()
    if (sze == 0) return NULL;
 
    //DO THIS
-
-
-
-
+	NextNode<T>* curr = top;
+	NextNode<T>* prev = NULL;
+	while (curr != NULL)
+	{
+		prev = curr;
+		curr = curr->getNext();
+	}
+	
+	T* item = prev->getItem();
+	delete prev;
+	
+	return item;
 }
 
 #endif
