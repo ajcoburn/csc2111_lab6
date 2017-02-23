@@ -74,27 +74,24 @@ bool Maze::isSolved(Cell* curr_cell, StackLinked<Cell>* stack)
 {
    //DO THIS
    //get row and col from curr_cell
-
-
+	int currRow = curr_cell->getRow();
+	int currCol = curr_cell->getCol();
 
    //have you solved the maze? (check that we are at the bottom right maze location and that it is a SPACE
-   if (                                                          )  
+   if (currRow == 21 && currCol == 31)  
    {
-
-
       //set the maze location to TRIED
-
+		maze->setElement(currRow, currCol, TRIED);
 
       //push curr_cell
-
+		stack->push(curr_cell);
 
       gui->update();
       //return the appropriate boolean
-
+		return true;
    }
-
-
    //return the appropriate boolean
+   return false;
    
 }
 
