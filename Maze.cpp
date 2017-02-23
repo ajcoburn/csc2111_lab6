@@ -100,14 +100,15 @@ void Maze::processSolution(StackLinked<Cell>* stack)
 {
    //DO THIS
    //the stack has the solution path stored
-   while(                    )
+   while( !stack->isEmpty() )
    {
       //get the next cell from the stack
-
-
+	  Cell* cl = stack->pop();
+	  int row = cl->getRow();
+	  int col = cl->getColumn();
       
       //update the maze location to PATH
-
+	  setElement(row, col, PATH);
 
 
 
