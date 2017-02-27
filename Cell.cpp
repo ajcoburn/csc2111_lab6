@@ -24,7 +24,8 @@ Direction Cell::getDir()
 {
    return dir;
 }
-
+//called only if you ran into a dead end
+//backtracked before calling
 Cell* Cell::nextCell()
 {
    Cell* cell = NULL;
