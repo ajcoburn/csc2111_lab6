@@ -1,6 +1,10 @@
 #if !defined (NEXTNODE_H)
 #define NEXTNODE_H
 
+#if !defined NULL
+#define NULL 0
+#endif
+
 template < class T >
 class NextNode 
 {

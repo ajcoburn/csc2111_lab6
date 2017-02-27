@@ -3,6 +3,9 @@
 
 #include "NextNode.h"
 
+#include <iostream>
+using namespace std;
+
 template < class T >
 class StackLinked
 {
@@ -67,54 +70,50 @@ void StackLinked<T>::popAll()
 template < class T >
 T* StackLinked<T>::peek()
 {
-   T* item = NULL;
+    T* item = NULL;
+   
    //DO THIS
-	NextNode<T>* curr = top;
-	NextNode<T>* prev = NULL;
-	while (curr != NULL)
-	{
-		prev = curr;
-		curr = curr->getNext();
-	}
-	
-	item = prev->getItem();
-	
-	return item;
+   if(!isEmpty())
+   {
+	   item = top->getItem();
+   }
+   return item;
 }
 
 template < class T >
 void StackLinked<T>::push(T* item)
 {
    //DO THIS
-	NextNode<T>* curr = top;
-	NextNode<T>* prev = NULL;
-	while (curr != NULL)
-	{
-		prev = curr;
-		curr = curr->getNext();
-	}
-	
-	curr->NextNode(item);
+   NextNode<T>* node = new NextNode<T>(item);
+   if(isEmpty())
+   {
+	   top = node;
+   }
+   else
+   {
+	   node->setNext(top);
+	   top = node;
+   }
+   sze++;
 }
 
 template < class T >
 T* StackLinked<T>::pop()
 {
+   T* item = NULL;
    if (sze == 0) return NULL;
 
    //DO THIS
-	NextNode<T>* curr = top;
-	NextNode<T>* prev = NULL;
-	while (curr != NULL)
-	{
-		prev = curr;
-		curr = curr->getNext();
-	}
-	
-	T* item = prev->getItem();
-	delete prev;
-	
-	return item;
+   else if(sze > 0)
+   {
+      NextNode<T>* curr = top;
+      item = top->getItem();
+      top = top->getNext();
+      delete curr; 
+   }
+   sze--;
+   return item;
+   
 }
 
 #endif

@@ -16,15 +16,15 @@ class Cell
    private:
       int row;
       int col;
-      Direction dir;
+      Direction dir;  //next Direction to try
 
    public:
-      Cell(int row, int col);
-      virtual ~Cell();
+      Cell(int row, int col);  //constructor
+      virtual ~Cell();  //destructor
       int getRow();
       int getCol();
-      Direction getDir();
-      Cell* nextCell();
+      Direction getDir();  //get next Direction to try
+      Cell* nextCell();  //create & return new Cell depending on dir 
 
 };
 
